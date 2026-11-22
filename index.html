@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transphil Transformer | Power Solutions</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --navy: #091c32;
+  --blue: #173f68;
+  --orange: #f47736;
+  --light: #f3f6fa;
+  --white: #ffffff;
+  --text: #132238;
+  --muted: #68788d;
+  --border: #dce4ed;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text);
+  background: var(--light);
+}
+
+a { text-decoration: none; color: inherit; }
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button { cursor: pointer; }
+
+.container {
+  width: min(1160px, 92%);
+  margin: auto;
+}
+
+.topbar {
+  background: #061426;
+  color: #b9c8da;
+  padding: 9px 0;
+  font-size: 12px;
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font: 700 20px "Space Grotesk";
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  background: var(--orange);
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.logo small {
+  display: block;
+  font: 700 9px "DM Sans";
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.navlinks {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #526175;
+}
+
+.navlinks a:hover { color: var(--orange); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--orange);
+  color: white;
+  padding: 13px 19px;
+  border: 0;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px #f4773630;
+}
+
+.btn.dark { background: var(--navy); }
+
+.btn.outline {
+  background: transparent;
+  border: 1px solid #ffffff55;
+  color: white;
+}
+
+.menu {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+  background: var(--navy);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #07182ff5 0%, #07182fc9 48%, #07182f30 100%),
+    url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-inner {
+  position: relative;
+  min-height: 590px;
+  display: grid;
+  grid-template-columns: 1fr .7fr;
+  align-items: center;
+  gap: 40px;
+  padding: 70px 0;
+}
+
+.eyebrow {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  margin: 20px 0;
+}
+
+.hero h1 span { color: var(--orange); }
+
+.hero p {
+  max-width: 540px;
+  color: #c4d0df;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.hero-info {
+  align-self: end;
+  justify-self: end;
+  background: #091c32d9;
+  border: 1px solid #ffffff30;
+  border-radius: 15px;
+  padding: 25px;
+  width: 280px;
+  backdrop-filter: blur(12px);
+}
+
+.hero-info strong {
+  display: block;
+  font: 700 28px "Space Grotesk";
+}
+
+.hero-info small { color: #b8c7d9; }
+
+.hero-info hr {
+  border: 0;
+  border-top: 1px solid #ffffff25;
+  margin: 18px 0;
+}
+
+/* STATS */
+
+.stats { background: white; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 25px 0;
+}
+
+.stat {
+  padding: 5px 22px;
+  border-right: 1px solid var(--border);
+}
+
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border: 0; }
+
+.stat strong {
+  display: block;
+  font: 700 26px "Space Grotesk";
+  color: var(--navy);
+}
+
+.stat span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* SECTIONS */
+
+.section { padding: 85px 0; }
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.section-head h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin: 12px 0;
+}
+
+.section-head p {
+  max-width: 440px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* PRODUCTS */
+
+.products { background: white; }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 25px;
+}
+
+.filter {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 10px 17px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filter.active,
+.filter:hover {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: .25s;
+  background: white;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px #0c23410d;
+}
+
+.product[hidden] { display: none; }
+
+.product-image {
+  height: 205px;
+  position: relative;
+  overflow: hidden;
+  background: #dce5ef;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.product:hover img { transform: scale(1.05); }
+
+.product-image span {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #ffffffdf;
+  padding: 7px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.product-body { padding: 22px; }
+
+.product-body h3 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.product-body p {
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 60px;
+}
+
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.tag {
+  background: #f0f4f8;
+  color: #516175;
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.product-link {
+  border: 0;
+  background: none;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0;
+}
+
+/* ABOUT */
+
+.about { background: #edf2f7; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image {
+  min-height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image span {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  background: #07182fbb;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.about-copy h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin: 15px 0;
+}
+
+.about-copy p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 25px 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.check b {
+  color: var(--orange);
+  margin-right: 7px;
+}
+
+/* CAPABILITIES */
+
+.capabilities {
+  background: var(--navy);
+  color: white;
+}
+
+.capabilities .section-head p { color: #b9c7d7; }
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.cap {
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  padding: 23px;
+  background: #ffffff08;
+}
+
+.cap-icon {
+  background: #f4773625;
+  color: var(--orange);
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.cap h3 {
+  font-size: 18px;
+  margin: 18px 0 8px;
+}
+
+.cap p {
+  color: #b9c7d7;
+  font-size: 12px;
+}
+
+/* APPLICATIONS */
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.app-card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.app-card span {
+  display: block;
+  color: var(--orange);
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+
+.contact { background: #edf2f7; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 25px;
+}
+
+.contact-panel {
+  background: var(--navy);
+  color: white;
+  border-radius: 17px;
+  padding: 30px;
+}
+
+.contact-panel h2 {
+  font-size: 34px;
+  margin: 15px 0;
+}
+
+.contact-panel p {
+  color: #b9c7d7;
+  font-size: 13px;
+}
+
+.contact-detail {
+  border-top: 1px solid #ffffff20;
+  padding: 17px 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.contact-detail small {
+  display: block;
+  color: #aabbd0;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.form-panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 30px;
+}
+
+.form-panel h3 {
+  font-size: 25px;
+  margin: 0 0 8px;
+}
+
+.form-panel > p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field.full { grid-column: 1 / -1; }
+
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fbfcfd;
+  font-size: 13px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--orange);
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.notice {
+  display: none;
+  background: #e8f8ef;
+  color: #176b3c;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 12px;
+  white-space: pre-wrap;
+  margin-top: 15px;
+}
+
+footer {
+  background: #061426;
+  color: #a8b8ca;
+  padding: 30px 0;
+  font-size: 11px;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-brand {
+  color: white;
+  font: 700 16px "Space Grotesk";
+}
+
+/* MODAL */
+
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #061426dd;
+  z-index: 50;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-bg.show { display: flex; }
+
+.modal {
+  background: white;
+  border-radius: 17px;
+  padding: 30px;
+  width: min(550px, 100%);
+  position: relative;
+}
+
+.modal h2 {
+  font-size: 30px;
+}
+
+.modal p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: 0;
+  background: #eef2f6;
+  border-radius: 8px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-info { justify-self: start; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { gap: 30px; }
+  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media(max-width:640px) {
+  .topbar .container { flex-direction: column; }
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navlinks.open { display: flex; }
+  .nav > .btn { display: none; }
+  .menu { display: block; }
+  .hero-inner { padding: 55px 0; }
+  .hero p { font-size: 15px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .stat { border: 0; padding: 5px 10px; }
+  .stat:first-child { padding-left: 10px; }
+  .section { padding: 65px 0; }
+  .section-head { display: block; }
+  .section-head p { margin-top: 15px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-image { min-height: 300px; }
+  .checks { grid-template-columns: 1fr; }
+  .cap-grid { grid-template-columns: 1fr 1fr; }
+  .app-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .contact-panel, .form-panel { padding: 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>Industrial power solutions · Quezon City, Philippines</span>
+    <span>Contact us for product availability</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">
+      <span class="logo-icon">T</span>
+      <span>TRANSPHIL<small>POWER SOLUTIONS</small></span>
+    </a>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn" href="#contact">Request a quote ↗</a>
+    <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow">Built for dependable power</div>
+      <h1>Powering the<br><span>work that matters.</span></h1>
+      <p>
+        Industrial transformer solutions designed around your
+        application—from standard configurations to custom requirements.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="#products">Explore products ↓</a>
+        <a class="btn outline" href="#contact">Talk to our team ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-info">
+      <strong>50 VA – 1.5 MVA</strong>
+      <small>Published transformer range*</small>
+      <hr>
+      <strong>Custom options</strong>
+      <small>Configurations for project requirements</small>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>1979</strong><span>Company roots</span></div>
+    <div class="stat"><strong>2 years*</strong><span>Published warranty</span></div>
+    <div class="stat"><strong>1–3 phase</strong><span>Configuration options</span></div>
+    <div class="stat"><strong>Custom</strong><span>Project-based solutions</span></div>
+  </div>
+</section>
+
+<section class="section products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Product portfolio</div>
+        <h2>Power solutions<br>for real-world demands.</h2>
+      </div>
+      <p>
+        Browse the product lines and select a product to view
+        details or start a tailored inquiry.
+      </p>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-filter="all">All products</button>
+      <button class="filter" data-filter="transformer">Transformers</button>
+      <button class="filter" data-filter="power">Power & welding</button>
+    </div>
+
+    <div class="product-grid">
+
+      <article class="product" data-category="transformer">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80" alt="Industrial electrical equipment">
+          <span>CORE PRODUCT</span>
+        </div>
+        <div class="product-body">
+          <h3>Dry-Type Transformers</h3>
+          <p>Auto, isolation and K-rated configurations in single- or three-phase options.</p>
+          <div class="tags"><span class="tag">50 VA–1.5 MVA*</span><span class="tag">Custom options</span></div>
+          <button class="product-link" data-product="Dry-Type Transformers">View product details ↗</button>
+        </div>
+      </article>
+
+      <article class="product" data-category="transformer">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-V70mzb0Xu_c?auto=format&fit=crop&w=900&q=80" alt="Electrical engineering equipment">
+          <span>INDUSTRIAL</span>
+        </div>
+        <div class="product-body">
+          <h3>Motor Starting Transformers</h3>
+          <p>Transformer solutions for motor-starting applications and industrial loads.</p>
+          <div class="tags"><span class="tag">Industrial use</span><span class="tag">Load-specific</span></div>
+          <button class="product-link" data-product="Motor Starting Transformers">View product details ↗</button>
+        </div>
+      </article>
+
+      <article class="product" data-category="power">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80" alt="Electrical technician">
+          <span>POWER QUALITY</span>
+        </div>
+        <div class="product-body">
+          <h3>Voltage Regulators</h3>
+          <p>Voltage regulation products for equipment requiring stable supply conditions.</p>
+          <div class="tags"><span class="tag">AVR</span><span class="tag">Sizing inquiry</span></div>
+          <button class="product-link" data-product="Automatic Voltage Regulators">View product details ↗</button>
+        </div>
+      </article>
+
+      <article class="product" data-category="power">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80" alt="Industrial welding">
+          <span>FABRICATION</span>
+        </div>
+        <div class="product-body">
+          <h3>Welding Machines</h3>
+          <p>Equipment for workshop, fabrication and industrial maintenance applications.</p>
+          <div class="tags"><span class="tag">Workshop</span><span class="tag">Availability on request</span></div>
+          <button class="product-link" data-product="Welding Machines">View product details ↗</button>
+        </div>
+      </article>
+
+    </div>
+
+    <p style="font-size:11px;color:#68788d;margin-top:20px">
+      *Range and warranty are based on published company materials.
+      Confirm specifications with Transphil before purchase.
+    </p>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=85" alt="Industrial workshop">
+      <span>Industrial engineering and manufacturing</span>
+    </div>
+
+    <div class="about-copy">
+      <div class="eyebrow">About Transphil</div>
+      <h2>Experience in power.<br>Focus on reliability.</h2>
+      <p>
+        Transphil Transformer traces its roots to NorCruz Engineering,
+        founded in 1979. The company describes its work as designing
+        and manufacturing dry-type transformers and related electrical products.
+      </p>
+      <p>
+        Its published company background emphasizes practical experience,
+        flexible manufacturing, technical support and after-sales service.
+      </p>
+
+      <div class="checks">
+        <div class="check"><b>✓</b> Standard & custom options</div>
+        <div class="check"><b>✓</b> Technical support</div>
+        <div class="check"><b>✓</b> After-sales service</div>
+        <div class="check"><b>✓</b> Industrial applications</div>
+      </div>
+
+      <a class="btn dark" href="#contact">Discuss your project ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">How we support</div>
+        <h2>More than a product.</h2>
+      </div>
+      <p>
+        Connect with the team for application discussions,
+        product selection and service-related inquiries.
+      </p>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap"><div class="cap-icon">⌁</div><h3>Application review</h3><p>Share your load, phase and installation requirements.</p></div>
+      <div class="cap"><div class="cap-icon">⚙</div><h3>Custom requirements</h3><p>Discuss configurations for your project specifications.</p></div>
+      <div class="cap"><div class="cap-icon">↗</div><h3>Service support</h3><p>Ask about installation and after-sales support.</p></div>
+      <div class="cap"><div class="cap-icon">◎</div><h3>Quote assistance</h3><p>Send project details to help prepare a response.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="industries">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Applications</div>
+        <h2>Supporting critical<br>places and industries.</h2>
+      </div>
+      <p>
+        Published company materials identify commercial and industrial
+        environments for transformer products.
+      </p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app-card"><span>01 / INDUSTRY</span>Manufacturing & plants</div>
+      <div class="app-card"><span>02 / BUILDINGS</span>Commercial construction</div>
+      <div class="app-card"><span>03 / HEALTHCARE</span>Hospitals & facilities</div>
+      <div class="app-card"><span>04 / INFRASTRUCTURE</span>Malls, elevators & airports</div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Start a conversation</div>
+        <h2>Tell us what you<br>need to power.</h2>
+      </div>
+      <p>
+        Prepare an inquiry preview. This demo does not send
+        information to the company.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <aside class="contact-panel">
+        <div class="eyebrow">Contact information</div>
+        <h2>Transphil<br>Transformer</h2>
+        <p>Contact the company to confirm current product specifications and availability.</p>
+
+        <div class="contact-detail">
+          <small>Address</small>
+          36 Kalapati Street, Villilia Village, Brgy. Talipapa,
+          Novaliches, Quezon City, Philippines
+        </div>
+
+        <div class="contact-detail">
+          <small>Telephone</small>
+          <a href="tel:0289373849">(02) 8937-3849</a>
+        </div>
+
+        <div class="contact-detail">
+          <small>Email</small>
+          <a href="mailto:transphiltrading@yahoo.com">transphiltrading@yahoo.com</a>
+        </div>
+
+        <div class="contact-detail">
+          <small>Messenger</small>
+          @transphiltrading
+        </div>
+      </aside>
+
+      <div class="form-panel">
+        <h3>Project inquiry</h3>
+        <p>Share the basic requirements for your project.</p>
+
+        <form id="quoteForm">
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="name">Name / Company *</label>
+              <input id="name" required placeholder="Your name or company">
+            </div>
+
+            <div class="field">
+              <label for="contactInfo">Email / Phone *</label>
+              <input id="contactInfo" required placeholder="How can they reach you?">
+            </div>
+
+            <div class="field">
+              <label for="product">Product *</label>
+              <select id="product" required>
+                <option value="">Choose a product</option>
+                <option>Dry-Type Transformers</option>
+                <option>Motor Starting Transformers</option>
+                <option>Automatic Voltage Regulators</option>
+                <option>Welding Machines</option>
+                <option>Service / After-sales</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="phase">Phase</label>
+              <select id="phase">
+                <option>Not sure yet</option>
+                <option>Single-phase</option>
+                <option>Three-phase</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="rating">Capacity / Rating</label>
+              <input id="rating" placeholder="e.g. 100 kVA">
+            </div>
+
+            <div class="field">
+              <label for="location">Project location</label>
+              <input id="location" placeholder="City / province">
+            </div>
+
+            <div class="field full">
+              <label for="details">Project details</label>
+              <textarea id="details" placeholder="Application, voltage, installation environment..."></textarea>
+            </div>
+
+            <div class="field full">
+              <button class="btn dark" type="submit">Generate inquiry preview ↗</button>
+            </div>
+
+          </div>
+        </form>
+
+        <div class="notice" id="notice"></div>
+
+        <p style="font-size:11px;color:#68788d">
+          Portfolio demo only. Connect a backend or approved form service
+          before production use.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <div class="footer-brand">TRANSPHIL · POWER SOLUTIONS</div>
+      <div>Industrial power equipment · Quezon City</div>
+    </div>
+    <div>Portfolio website concept · <span id="year"></span></div>
+  </div>
+</footer>
+
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="close" id="closeModal">×</button>
+    <div class="eyebrow">Product overview</div>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <button class="btn dark" id="modalQuote">Ask about this product ↗</button>
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById("navlinks");
+
+document.getElementById("menuBtn").addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => nav.classList.remove("open"));
+});
+
+// Product filters
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+
+    document.querySelectorAll(".product").forEach(card => {
+      const category = button.dataset.filter;
+      card.hidden = category !== "all" && card.dataset.category !== category;
+    });
+  });
+});
+
+// Product details
+const descriptions = {
+  "Dry-Type Transformers":
+    "Auto-type, isolation-type and K-rated dry-type transformer configurations are listed in Transphil's published materials. Ask the company to confirm exact capacity, voltage, configuration and availability.",
+
+  "Motor Starting Transformers":
+    "Transphil lists motor starting transformers among its products. Discuss motor details, starting method, duty and site conditions with the company before selecting a unit.",
+
+  "Automatic Voltage Regulators":
+    "Automatic voltage regulators are included in the company's product portfolio. Ask about input range, output regulation, load rating and application suitability.",
+
+  "Welding Machines":
+    "Welding machines are included in the company's published product range. Contact the team to confirm available models, specifications and service options."
+};
+
+const modal = document.getElementById("modal");
+let selectedProduct = "";
+
+document.querySelectorAll(".product-link").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedProduct = button.dataset.product;
+    document.getElementById("modalTitle").textContent = selectedProduct;
+    document.getElementById("modalText").textContent = descriptions[selectedProduct];
+    modal.classList.add("show");
+  });
+});
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+document.getElementById("closeModal").addEventListener("click", closeModal);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) closeModal();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeModal();
+});
+
+document.getElementById("modalQuote").addEventListener("click", () => {
+  document.getElementById("product").value = selectedProduct;
+  closeModal();
+  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+});
+
+// Inquiry preview
+document.getElementById("quoteForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const value = id => document.getElementById(id).value.trim();
+
+  const message =
+`INQUIRY PREVIEW
+
+Name / Company: ${value("name")}
+Contact: ${value("contactInfo")}
+Product: ${value("product")}
+Phase: ${value("phase")}
+Capacity: ${value("rating") || "Not specified"}
+Location: ${value("location") || "Not specified"}
+
+Project details:
+${value("details") || "Not specified"}
+
+This is a local demo preview. No information has been sent.`;
+
+  const notice = document.getElementById("notice");
+  notice.textContent = message;
+  notice.style.display = "block";
+
+  const copyButton = document.createElement("button");
+  copyButton.className = "btn dark";
+  copyButton.style.marginTop = "12px";
+  copyButton.textContent = "Copy inquiry";
+
+  copyButton.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(message);
+      copyButton.textContent = "Copied!";
+    } catch {
+      copyButton.textContent = "Please copy the text manually";
+    }
+  };
+
+  notice.appendChild(document.createElement("br"));
+  notice.appendChild(copyButton);
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
